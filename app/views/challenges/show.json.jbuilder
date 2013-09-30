@@ -1,0 +1,1 @@
+json.extract! @challenge, :name, :description, :start_date, :end_date, :challenge_img, :total_offer, :amount_raised, :sponsor_blurb, :charity_blurb, :enabled, :seo_name, :img_thumb_url, :logo_url, :created_at, :updated_at

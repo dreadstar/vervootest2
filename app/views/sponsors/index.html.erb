@@ -1,0 +1,55 @@
+<h1>Listing sponsors</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Enabled</th>
+      <th>Name</th>
+      <th>Address1</th>
+      <th>Address2</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Province</th>
+      <th>Postal code</th>
+      <th>Country</th>
+      <th>Phone number</th>
+      <th>Img url</th>
+      <th>Website</th>
+      <th>Seo name</th>
+      <th>Img thumb url</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sponsors.each do |sponsor| %>
+      <tr>
+        <td><%= sponsor.email %></td>
+        <td><%= sponsor.enabled %></td>
+        <td><%= sponsor.name %></td>
+        <td><%= sponsor.address1 %></td>
+        <td><%= sponsor.address2 %></td>
+        <td><%= sponsor.city %></td>
+        <td><%= sponsor.state %></td>
+        <td><%= sponsor.province %></td>
+        <td><%= sponsor.postal_code %></td>
+        <td><%= sponsor.country %></td>
+        <td><%= sponsor.phone_number %></td>
+        <td><%= sponsor.img_url %></td>
+        <td><%= sponsor.website %></td>
+        <td><%= sponsor.seo_name %></td>
+        <td><%= sponsor.img_thumb_url %></td>
+        <td><%= link_to 'Show', sponsor %></td>
+        <td><%= link_to 'Edit', edit_sponsor_path(sponsor) %></td>
+        <td><%= link_to 'Destroy', sponsor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sponsor', new_sponsor_path %>

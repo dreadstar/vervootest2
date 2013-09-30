@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  description: MyText
+  start_date: 2013-09-30 16:39:10
+  end_date: 2013-09-30 16:39:10
+  challenge_img: MyString
+  total_offer: 9.99
+  amount_raised: 9.99
+  sponsor_blurb: MyText
+  charity_blurb: MyText
+  enabled: false
+  seo_name: MyString
+  img_thumb_url: MyString
+  logo_url: MyString
+
+two:
+  name: MyString
+  description: MyText
+  start_date: 2013-09-30 16:39:10
+  end_date: 2013-09-30 16:39:10
+  challenge_img: MyString
+  total_offer: 9.99
+  amount_raised: 9.99
+  sponsor_blurb: MyText
+  charity_blurb: MyText
+  enabled: false
+  seo_name: MyString
+  img_thumb_url: MyString
+  logo_url: MyString

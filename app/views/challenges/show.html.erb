@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @challenge.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @challenge.description %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @challenge.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @challenge.end_date %>
+</p>
+
+<p>
+  <strong>Challenge img:</strong>
+  <%= @challenge.challenge_img %>
+</p>
+
+<p>
+  <strong>Total offer:</strong>
+  <%= @challenge.total_offer %>
+</p>
+
+<p>
+  <strong>Amount raised:</strong>
+  <%= @challenge.amount_raised %>
+</p>
+
+<p>
+  <strong>Sponsor blurb:</strong>
+  <%= @challenge.sponsor_blurb %>
+</p>
+
+<p>
+  <strong>Charity blurb:</strong>
+  <%= @challenge.charity_blurb %>
+</p>
+
+<p>
+  <strong>Enabled:</strong>
+  <%= @challenge.enabled %>
+</p>
+
+<p>
+  <strong>Seo name:</strong>
+  <%= @challenge.seo_name %>
+</p>
+
+<p>
+  <strong>Img thumb url:</strong>
+  <%= @challenge.img_thumb_url %>
+</p>
+
+<p>
+  <strong>Logo url:</strong>
+  <%= @challenge.logo_url %>
+</p>
+
+<%= link_to 'Edit', edit_challenge_path(@challenge) %> |
+<%= link_to 'Back', challenges_path %>
