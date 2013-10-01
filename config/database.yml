@@ -2,8 +2,8 @@ development:
   adapter: mysql
   encoding: utf8
   database: omicronp_vervoodev
-  username: omicronp_jo151
-  password: 3YXfOvGBZ58w
+  username: omicronp_dev
+  password: V#T,~fJ!Nx*I
   host: 50.63.147.92
   port: 3306
 
@@ -20,8 +20,8 @@ test:
   adapter: mysql
   encoding: utf8
   database: omicronp_vervootest
-  username: omicronp_jo151
-  password: 3YXfOvGBZ58w
+  username: omicronp_dev
+  password: V#T,~fJ!Nx*I
   host: 50.63.147.92
   port: 3306
 
@@ -29,7 +29,7 @@ production:
   adapter: mysql
   encoding: utf8
   database: omicronp_vervooprod
-  username: omicronp_jo151
-  password: 3YXfOvGBZ58w
+  username: omicronp_dev
+  password: V#T,~fJ!Nx*I
   host: 50.63.147.92
   port: 3306
