@@ -1,0 +1,37 @@
+<h1>Listing actions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Enabled</th>
+      <th>Challenge</th>
+      <th>Subtype</th>
+      <th>Amt</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @actions.each do |action| %>
+      <tr>
+        <td><%= action.name %></td>
+        <td><%= action.description %></td>
+        <td><%= action.enabled %></td>
+        <td><%= action.challenge_id %></td>
+        <td><%= action.subtype %></td>
+        <td><%= action.amt %></td>
+        <td><%= link_to 'Show', action %></td>
+        <td><%= link_to 'Edit', edit_action_path(action) %></td>
+        <td><%= link_to 'Destroy', action, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Action', new_action_path %>

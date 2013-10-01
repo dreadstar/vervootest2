@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  hint_msg: MyText
+  found_msg: MyText
+  team: false
+
+two:
+  hint_msg: MyText
+  found_msg: MyText
+  team: false

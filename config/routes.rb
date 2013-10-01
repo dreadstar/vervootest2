@@ -1,4 +1,6 @@
 Vervootest2::Application.routes.draw do
+  resources :actions
+
   resources :roles
 
   resources :sponsors
