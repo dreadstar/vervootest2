@@ -65,6 +65,9 @@ GEM
     mime-types (1.25)
     minitest (4.7.5)
     multi_json (1.8.0)
+    multiple_table_inheritance (0.2.1)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
     mysql (2.9.1-x86-mingw32)
     orm_adapter (0.4.0)
     paperclip (3.5.1)
@@ -135,6 +138,7 @@ DEPENDENCIES
   gravatar
   jbuilder (~> 1.2)
   jquery-rails
+  multiple_table_inheritance
   mysql
   paperclip
   rails (= 4.0.0)

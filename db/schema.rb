@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131001034121) do
+ActiveRecord::Schema.define(version: 20131001063456) do
 
   create_table "action_scavengers", force: true do |t|
     t.text     "hint_msg"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20131001034121) do
     t.string   "logo_url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "owner_id"
   end
 
   create_table "challenges_nonprofits", force: true do |t|
