@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  action_savenger_id: 1
+  hint_msg: MyText
+  found_msg: MyText
+  order: 9.99
+
+two:
+  action_savenger_id: 1
+  hint_msg: MyText
+  found_msg: MyText
+  order: 9.99

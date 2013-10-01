@@ -1,3 +1,3 @@
 class Action < ActiveRecord::Base
-  acts_as_superclass
+  acts_as_predecessor
 end

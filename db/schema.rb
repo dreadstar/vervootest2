@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131001063456) do
+ActiveRecord::Schema.define(version: 20131001221139) do
 
   create_table "action_scavengers", force: true do |t|
-    t.text     "hint_msg"
-    t.text     "found_msg"
     t.boolean  "team"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "start_msg"
+    t.text     "complete_msg"
   end
 
   create_table "actions", force: true do |t|
@@ -26,10 +26,11 @@ ActiveRecord::Schema.define(version: 20131001063456) do
     t.text     "description"
     t.boolean  "enabled"
     t.integer  "challenge_id"
-    t.string   "subtype"
     t.decimal  "amt",          precision: 10, scale: 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "heir_type"
+    t.integer  "heir_id"
   end
 
   create_table "challenges", force: true do |t|
@@ -61,6 +62,11 @@ ActiveRecord::Schema.define(version: 20131001063456) do
     t.integer "sponsor_id"
   end
 
+  create_table "challenges_teammembers", force: true do |t|
+    t.integer "challenge_id"
+    t.integer "user_id"
+  end
+
   create_table "nonprofits", force: true do |t|
     t.string   "email"
     t.boolean  "enabled"
@@ -84,6 +90,15 @@ ActiveRecord::Schema.define(version: 20131001063456) do
   create_table "roles", force: true do |t|
     t.string   "name"
     t.string   "code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "scavenger_items", force: true do |t|
+    t.integer  "action_savenger_id"
+    t.text     "hint_msg"
+    t.text     "found_msg"
+    t.decimal  "order",              precision: 10, scale: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

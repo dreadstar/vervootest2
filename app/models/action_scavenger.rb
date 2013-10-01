@@ -1,3 +1,4 @@
 class ActionScavenger < ActiveRecord::Base
-  inherits_from :action
+  acts_as_heir_of :action
+  has_many :scavenger_items
 end

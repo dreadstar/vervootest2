@@ -32,7 +32,8 @@ gem 'devise'
 gem 'paperclip'
 gem 'cancan'
 gem 'gravatar'
-gem 'multiple_table_inheritance'
+#gem 'multiple_table_inheritance'
+gem 'heritage'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
