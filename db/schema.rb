@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131001221139) do
+ActiveRecord::Schema.define(version: 20131001233219) do
 
   create_table "action_scavengers", force: true do |t|
     t.boolean  "team"
@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 20131001221139) do
     t.decimal  "order",              precision: 10, scale: 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "find_amt",           precision: 10, scale: 0
   end
 
   create_table "sponsors", force: true do |t|
