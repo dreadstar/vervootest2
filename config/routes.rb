@@ -1,4 +1,5 @@
 Vervootest2::Application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   get "vervoom/home"
   get "vervoom/challenges"
   get "vervoom/users"

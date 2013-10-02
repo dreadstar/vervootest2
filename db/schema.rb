@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131001233219) do
+ActiveRecord::Schema.define(version: 20131002184654) do
 
   create_table "action_scavengers", force: true do |t|
     t.boolean  "team"
@@ -38,18 +38,24 @@ ActiveRecord::Schema.define(version: 20131001233219) do
     t.text     "description"
     t.datetime "start_date"
     t.datetime "end_date"
-    t.string   "challenge_img"
-    t.decimal  "total_offer",   precision: 10, scale: 0
-    t.decimal  "amount_raised", precision: 10, scale: 0
+    t.decimal  "total_offer",                precision: 10, scale: 0
+    t.decimal  "amount_raised",              precision: 10, scale: 0
     t.text     "sponsor_blurb"
     t.text     "charity_blurb"
     t.boolean  "enabled"
     t.string   "seo_name"
-    t.string   "img_thumb_url"
     t.string   "logo_url"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "owner_id"
+    t.string   "challenge_img_file_name"
+    t.string   "challenge_img_content_type"
+    t.integer  "challenge_img_file_size"
+    t.datetime "challenge_img_updated_at"
+    t.string   "img_thumb_url_file_name"
+    t.string   "img_thumb_url_content_type"
+    t.integer  "img_thumb_url_file_size"
+    t.datetime "img_thumb_url_updated_at"
   end
 
   create_table "challenges_nonprofits", force: true do |t|
@@ -67,6 +73,22 @@ ActiveRecord::Schema.define(version: 20131001233219) do
     t.integer "user_id"
   end
 
+  create_table "ckeditor_assets", force: true do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    limit: 30
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
+
   create_table "nonprofits", force: true do |t|
     t.string   "email"
     t.boolean  "enabled"
@@ -79,12 +101,18 @@ ActiveRecord::Schema.define(version: 20131001233219) do
     t.string   "postal_code"
     t.string   "country"
     t.string   "phone_number"
-    t.string   "img_url"
     t.string   "website"
     t.string   "seo_name"
-    t.string   "img_thumb_url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "img_file_name"
+    t.string   "img_content_type"
+    t.integer  "img_file_size"
+    t.datetime "img_updated_at"
+    t.string   "thumb_file_name"
+    t.string   "thumb_content_type"
+    t.integer  "thumb_file_size"
+    t.datetime "thumb_updated_at"
   end
 
   create_table "roles", force: true do |t|
@@ -116,12 +144,18 @@ ActiveRecord::Schema.define(version: 20131001233219) do
     t.string   "postal_code"
     t.string   "country"
     t.string   "phone_number"
-    t.string   "img_url"
     t.string   "website"
     t.string   "seo_name"
-    t.string   "img_thumb_url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "img_file_name"
+    t.string   "img_content_type"
+    t.integer  "img_file_size"
+    t.datetime "img_updated_at"
+    t.string   "thumb_file_name"
+    t.string   "thumb_content_type"
+    t.integer  "thumb_file_size"
+    t.datetime "thumb_updated_at"
   end
 
   create_table "users", force: true do |t|

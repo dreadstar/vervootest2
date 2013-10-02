@@ -29,11 +29,12 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'mysql'
 gem 'devise'
-gem 'paperclip'
+gem 'paperclip', '~> 3.0'
 gem 'cancan'
 gem 'gravatar'
 #gem 'multiple_table_inheritance'
 gem 'heritage'
+gem 'ckeditor'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
