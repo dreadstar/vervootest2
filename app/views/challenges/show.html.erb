@@ -22,7 +22,7 @@
 
 <p>
   <strong>Challenge img:</strong>
-  <%= @challenge.challenge_img %>
+  <%= image_tag @challenge.challenge_img.url %> 
 </p>
 
 <p>
@@ -57,7 +57,8 @@
 
 <p>
   <strong>Img thumb url:</strong>
-  <%= @challenge.img_thumb_url %>
+  
+  <%= image_tag @challenge.img_thumb_url.url %>
 </p>
 
 <p>

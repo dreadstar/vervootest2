@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131002184654) do
+ActiveRecord::Schema.define(version: 20131007172355) do
+
+  create_table "action_bases", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.boolean  "enabled"
+    t.integer  "challenge_id"
+    t.decimal  "amt",          precision: 10, scale: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "heir"
+    t.string   "heir_type"
+  end
 
   create_table "action_scavengers", force: true do |t|
     t.boolean  "team"
@@ -19,6 +31,18 @@ ActiveRecord::Schema.define(version: 20131002184654) do
     t.datetime "updated_at"
     t.text     "start_msg"
     t.text     "complete_msg"
+  end
+
+  create_table "action_stubs", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.boolean  "enabled"
+    t.integer  "challenge_id"
+    t.integer  "heir"
+    t.string   "heir_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.decimal  "amt",          precision: 10, scale: 3
   end
 
   create_table "actions", force: true do |t|

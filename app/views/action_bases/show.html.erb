@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @action_basis.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @action_basis.description %>
+</p>
+
+<p>
+  <strong>Enabled:</strong>
+  <%= @action_basis.enabled %>
+</p>
+
+<p>
+  <strong>Challenge:</strong>
+  <%= @action_basis.challenge_id %>
+</p>
+
+<p>
+  <strong>Amt:</strong>
+  <%= @action_basis.amt %>
+</p>
+
+<%= link_to 'Edit', edit_action_basis_path(@action_basis) %> |
+<%= link_to 'Back', action_bases_path %>

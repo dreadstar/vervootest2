@@ -5,13 +5,15 @@ one:
   description: MyText
   enabled: false
   challenge_id: 1
-  subtype: MyString
   amt: 9.99
+  heir: 1
+  heir_type: MyString
 
 two:
   name: MyString
   description: MyText
   enabled: false
   challenge_id: 1
-  subtype: MyString
   amt: 9.99
+  heir: 1
+  heir_type: MyString

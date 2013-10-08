@@ -4,7 +4,11 @@ class ActionsController < ApplicationController
   # GET /actions
   # GET /actions.json
   def index
-    @actions = Action.all
+    # @actions = Action.all
+    
+     @actions = Action.find(:all, :conditions => { challenge_id: params[:challenge_id]})
+     @challenge_id= params[:challenge_id]
+     
   end
 
   # GET /actions/1
@@ -15,6 +19,7 @@ class ActionsController < ApplicationController
   # GET /actions/new
   def new
     @action = Action.new
+    @action.challenge_id= params[:challenge_id]
   end
 
   # GET /actions/1/edit
@@ -69,6 +74,6 @@ class ActionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def action_params
-      params.require(:action).permit(:name, :description, :enabled, :challenge_id, :subtype, :amt)
+      params.require(:action).permit(:name, :description, :enabled, :challenge_id, :amt)
     end
 end

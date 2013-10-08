@@ -14,7 +14,7 @@
       <th></th>
     </tr>
   </thead>
-
+<% unless @actions.blank? %>
   <tbody>
     <% @actions.each do |action| %>
       <tr>
@@ -22,7 +22,7 @@
         <td><%= action.description %></td>
         <td><%= action.enabled %></td>
         <td><%= action.challenge_id %></td>
-        <td><%= action.subtype %></td>
+ 
         <td><%= action.amt %></td>
         <td><%= link_to 'Show', action %></td>
         <td><%= link_to 'Edit', edit_action_path(action) %></td>
@@ -30,8 +30,9 @@
       </tr>
     <% end %>
   </tbody>
+  <% end %>
 </table>
 
 <br>
 
-<%= link_to 'New Action', new_action_path %>
+<%= link_to 'New Action', new_action_path( :challenge_id => @challenge.id ) %>

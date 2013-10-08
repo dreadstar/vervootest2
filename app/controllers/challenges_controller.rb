@@ -15,10 +15,12 @@ class ChallengesController < ApplicationController
   # GET /challenges/new
   def new
     @challenge = Challenge.new
+    action_stub= @challenge.action_stubs.build
   end
 
   # GET /challenges/1/edit
   def edit
+    action_stub= @challenge.action_stubs.build
   end
 
   # POST /challenges

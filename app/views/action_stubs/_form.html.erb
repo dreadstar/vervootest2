@@ -1,10 +1,10 @@
-<%= form_for(@action) do |f| %>
-  <% if @action.errors.any? %>
+<%= form_for(@action_stub) do |f| %>
+  <% if @action_stub.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@action.errors.count, "error") %> prohibited this action from being saved:</h2>
+      <h2><%= pluralize(@action_stub.errors.count, "error") %> prohibited this action_stub from being saved:</h2>
 
       <ul>
-      <% @action.errors.full_messages.each do |msg| %>
+      <% @action_stub.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -27,10 +27,17 @@
     <%= f.label :challenge_id %><br>
     <%= f.number_field :challenge_id %>
   </div>
-  
   <div class="field">
     <%= f.label :amt %><br>
     <%= f.text_field :amt %>
+  </div>
+  <div class="field">
+    <%= f.label :heir %><br>
+    <%= f.number_field :heir %>
+  </div>
+  <div class="field">
+    <%= f.label :heir_type %><br>
+    <%= f.text_field :heir_type %>
   </div>
   <div class="actions">
     <%= f.submit %>

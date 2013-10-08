@@ -1,0 +1,39 @@
+<h1>Listing action_stubs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      
+      <th>Enabled</th>
+      
+      <th>Amt</th>
+    
+      <th>Heir type</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @action_stubs.each do |action_stub| %>
+      <tr>
+        <td><%= action_stub.name %></td>
+      
+        <td><%= action_stub.enabled %></td>
+      
+        <td><%= action_stub.amt %></td>
+        
+        <td><%= action_stub.heir_type %></td>
+        <td><%= link_to 'Show', action_stub %></td>
+        <td><%= link_to 'Edit', edit_action_stub_path(action_stub) %></td>
+        <td><%= link_to 'Destroy', action_stub, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Action stub', new_action_stub_path %>

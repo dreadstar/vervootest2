@@ -1,6 +1,8 @@
 <h1>Editing challenge</h1>
 
 <%= render 'form' %>
+<% @action_stubs=@challenge.action_stubs %>
 
-<%= link_to 'Show', @challenge %> |
+<%= link_to 'Show', @challenge %> |<%= link_to 'New Action', new_action_stub_path( :challenge_id => @challenge.id ) %>
+<%= render "action_stub_list" %>
 <%= link_to 'Back', challenges_path %>

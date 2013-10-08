@@ -4,18 +4,17 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Description</th>
+     
       <th>Start date</th>
       <th>End date</th>
       <th>Challenge img</th>
       <th>Total offer</th>
       <th>Amount raised</th>
-      <th>Sponsor blurb</th>
-      <th>Charity blurb</th>
+    
       <th>Enabled</th>
-      <th>Seo name</th>
-      <th>Img thumb url</th>
-      <th>Logo url</th>
+  
+    
+     
       <th></th>
       <th></th>
       <th></th>
@@ -26,18 +25,17 @@
     <% @challenges.each do |challenge| %>
       <tr>
         <td><%= challenge.name %></td>
-        <td><%= challenge.description %></td>
+        
         <td><%= challenge.start_date %></td>
         <td><%= challenge.end_date %></td>
         <td><%= challenge.challenge_img %></td>
         <td><%= challenge.total_offer %></td>
         <td><%= challenge.amount_raised %></td>
-        <td><%= challenge.sponsor_blurb %></td>
-        <td><%= challenge.charity_blurb %></td>
+
         <td><%= challenge.enabled %></td>
-        <td><%= challenge.seo_name %></td>
-        <td><%= challenge.img_thumb_url %></td>
-        <td><%= challenge.logo_url %></td>
+       
+       
+       
         <td><%= link_to 'Show', challenge %></td>
         <td><%= link_to 'Edit', edit_challenge_path(challenge) %></td>
         <td><%= link_to 'Destroy', challenge, method: :delete, data: { confirm: 'Are you sure?' } %></td>
