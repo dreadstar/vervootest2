@@ -1,4 +1,4 @@
-<%= form_for(@action_stub) do |f| %>
+<%= form_for(@action_stub) do |g| %>
   <% if @action_stub.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@action_stub.errors.count, "error") %> prohibited this action_stub from being saved:</h2>
@@ -12,34 +12,34 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= g.label :name %><br>
+    <%= g.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= g.label :description %><br>
+    <%= g.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :enabled %><br>
-    <%= f.check_box :enabled %>
+    <%= g.label :enabled %><br>
+    <%= g.check_box :enabled %>
   </div>
   <div class="field">
-    <%= f.label :challenge_id %><br>
-    <%= f.number_field :challenge_id %>
+    <%= g.label :challenge_id %><br>
+    <%= g.number_field :challenge_id %>
   </div>
   <div class="field">
-    <%= f.label :amt %><br>
-    <%= f.text_field :amt %>
+    <%= g.label :amt %><br>
+    <%= g.text_field :amt %>
   </div>
   <div class="field">
-    <%= f.label :heir %><br>
-    <%= f.number_field :heir %>
+    <%= g.label :heir %><br>
+    <%= g.number_field :heir %>
   </div>
   <div class="field">
-    <%= f.label :heir_type %><br>
-    <%= f.text_field :heir_type %>
+    <%= g.label :heir_type %><br>
+    <%= g.text_field :heir_type %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= g.submit %>
   </div>
 <% end %>
