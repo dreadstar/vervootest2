@@ -9,6 +9,7 @@ Vervootest2::Application.routes.draw do
   get "vervoom/users"
   get "vervoom/sponsors"
   get "vervoom/nonprofits"
+  
   resources :actions
 
   resources :roles

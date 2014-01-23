@@ -27,6 +27,8 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.0)
     atomic (1.1.14)
+    awesome_print (1.2.0)
+    bcrypt-ruby (3.1.2)
     bcrypt-ruby (3.1.2-x86-mingw32)
     builder (3.1.4)
     cancan (1.6.10)
@@ -69,6 +71,7 @@ GEM
     mime-types (1.25)
     minitest (4.7.5)
     multi_json (1.8.0)
+    mysql (2.9.1)
     mysql (2.9.1-x86-mingw32)
     orm_adapter (0.4.0)
     paperclip (3.5.1)
@@ -130,9 +133,11 @@ GEM
       rack (>= 1.0)
 
 PLATFORMS
+  ruby
   x86-mingw32
 
 DEPENDENCIES
+  awesome_print
   cancan
   ckeditor
   coffee-rails (~> 4.0.0)

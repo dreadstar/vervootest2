@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# Awesome print in console
+gem 'awesome_print'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 

@@ -66,5 +66,22 @@
   <%= @challenge.logo_url %>
 </p>
 
+<h2>Action</h2>
+<% @challenge.action_stubs.each do |action| %>
+  <p>
+    <strong>Name:</strong>
+    <%= action.name %>
+  </p>
+  <p>
+  <strong>Description:</strong>
+    <%= action.description %>
+</p>
+<p>
+  <strong>Challenge Id:</strong>
+  <%= action.challenge_id %>
+</p>
+<% end %>
+
+
 <%= link_to 'Edit', edit_challenge_path(@challenge) %> |
 <%= link_to 'Back', challenges_path %>
