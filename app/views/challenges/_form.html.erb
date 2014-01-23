@@ -64,7 +64,7 @@
     <%= f.text_field :seo_name %>
   </div>
 
-  <%= f.fields_for :action_stub do |builder| %>
+  <%= f.fields_for :action_stubs do |builder| %>
     <%= render "action_stub_form", :f => builder %>
   <% end %>
   

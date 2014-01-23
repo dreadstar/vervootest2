@@ -1,5 +1,5 @@
 class ChallengesController < ApplicationController
-  before_action :set_challenge, only: [:show, :edit, :update, :destroy]
+  #before_action :set_challenge, only: [:show, :edit, :update, :destroy]
 
   # GET /challenges
   # GET /challenges.json
@@ -11,24 +11,25 @@ class ChallengesController < ApplicationController
   # GET /challenges/1.json
   def show
     @challenge = Challenge.find(params[:id])
-    @challenge.action_stubs.build
   end
 
   # GET /challenges/new
   def new
     @challenge = Challenge.new
-    @challenge.action_stubs.build
+    @action_stub= @challenge.action_stubs.build
   end
 
   # GET /challenges/1/edit
   def edit
+    @challenge = Challenge.find(params[:id])
     @action_stub= @challenge.action_stubs.build
   end
 
   # POST /challenges
   # POST /challenges.json
   def create
-    @challenge = Challenge.new(params[:challenge_id])
+    @challenge = Challenge.new(challenge_params)
+
     respond_to do |format|
       if @challenge.save
         format.html { redirect_to @challenge, notice: 'Challenge was successfully created.' }
@@ -43,8 +44,9 @@ class ChallengesController < ApplicationController
   # PATCH/PUT /challenges/1
   # PATCH/PUT /challenges/1.json
   def update
+    @challenge = Challenge.find(params[:id])
     respond_to do |format|
-      if @challenge.update(params[:challenge_id])
+      if @challenge.update(challenge_params)
         format.html { redirect_to @challenge, notice: 'Challenge was successfully updated.' }
         format.json { head :no_content }
       else
@@ -57,7 +59,6 @@ class ChallengesController < ApplicationController
   # DELETE /challenges/1
   # DELETE /challenges/1.json
   def destroy
-    @challenge = Challenge.find(params[:id])
     @challenge.destroy
     respond_to do |format|
       format.html { redirect_to challenges_url }
@@ -73,6 +74,6 @@ class ChallengesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def challenge_params
-      params.require(:challenge).permit({:action_stubs => [:name, :description]},:action_stubs, :name, :description, :start_date, :end_date, :challenge_img, :total_offer, :amount_raised, :sponsor_blurb, :charity_blurb, :enabled, :seo_name, :img_thumb_url, :logo_url)
+      params.require(:challenge).permit({:action_stubs_attributes=>[:name,:description,:enabled,:amt,:id]}, :name, :description, :start_date, :end_date, :challenge_img, :total_offer, :amount_raised, :sponsor_blurb, :charity_blurb, :enabled, :seo_name, :img_thumb_url, :logo_url)
     end
 end
