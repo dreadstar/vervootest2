@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  display_msg: 
+  network_filter_list: MyString
+
+two:
+  display_msg: 
+  network_filter_list: MyString

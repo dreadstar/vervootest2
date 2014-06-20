@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131007172355) do
+ActiveRecord::Schema.define(version: 20140620042055) do
 
   create_table "action_bases", force: true do |t|
     t.string   "name"
@@ -33,12 +33,19 @@ ActiveRecord::Schema.define(version: 20131007172355) do
     t.text     "complete_msg"
   end
 
+  create_table "action_simpleshares", force: true do |t|
+    t.text     "display_msg"
+    t.string   "network_filter_list"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "action_stubs", force: true do |t|
     t.string   "name"
     t.text     "description"
     t.boolean  "enabled"
     t.integer  "challenge_id"
-    t.integer  "heir"
+    t.integer  "heir_id"
     t.string   "heir_type"
     t.datetime "created_at"
     t.datetime "updated_at"
