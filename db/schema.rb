@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131007172355) do
+ActiveRecord::Schema.define(version: 20131004191706) do
 
   create_table "action_bases", force: true do |t|
     t.string   "name"
@@ -38,16 +38,16 @@ ActiveRecord::Schema.define(version: 20131007172355) do
     t.text     "description"
     t.boolean  "enabled"
     t.integer  "challenge_id"
+    t.decimal  "amt",          precision: 10, scale: 0
     t.integer  "heir"
     t.string   "heir_type"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "amt",          precision: 10, scale: 3
   end
 
   create_table "actions", force: true do |t|
     t.string   "name"
-    t.text     "description"
+    t.string   "description"
     t.boolean  "enabled"
     t.integer  "challenge_id"
     t.decimal  "amt",          precision: 10, scale: 0
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20131007172355) do
     t.text     "charity_blurb"
     t.boolean  "enabled"
     t.string   "seo_name"
+    t.string   "img_thumb_url"
     t.string   "logo_url"
     t.datetime "created_at"
     t.datetime "updated_at"

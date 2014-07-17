@@ -1,11 +1,9 @@
 development:
   adapter: mysql
-  encoding: utf8
   database: omicronp_vervoodev
   username: omicronp_dev
   password: V#T,~fJ!Nx*I
-  host: 50.63.147.92
-  port: 3306
+  host: localhost
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -18,12 +16,10 @@ development:
 
 test:
   adapter: mysql
-  encoding: utf8
   database: omicronp_vervootest
   username: omicronp_dev
   password: V#T,~fJ!Nx*I
-  host: 50.63.147.92
-  port: 3306
+  host: localhost
 
 production:
   adapter: mysql
