@@ -1,5 +1,5 @@
 development:
-  adapter: mysql
+  adapter: mysql2
   database: omicronp_vervoodev
   username: omicronp_dev
   password: V#T,~fJ!Nx*I
@@ -15,14 +15,15 @@ development:
 #  timeout: 5000
 
 test:
-  adapter: mysql
+  adapter: mysql2
+  database: omicronp_vervoodev
   database: omicronp_vervootest
   username: omicronp_dev
   password: V#T,~fJ!Nx*I
   host: localhost
 
 production:
-  adapter: mysql
+  adapter: mysql2
   encoding: utf8
   database: omicronp_vervooprod
   username: omicronp_dev

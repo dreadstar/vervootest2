@@ -7,7 +7,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
-gem 'mysql'
+gem 'mysql2'
 gem 'devise'
 gem 'paperclip', '~> 3.0'
 gem 'cancan'
@@ -19,6 +19,7 @@ gem 'acts_as_relation', '~> 1.0'
 group :doc do
   gem 'sdoc', require: false
 end
+
 
 group :development, :test do
   gem 'rspec-rails'
