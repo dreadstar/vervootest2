@@ -1,0 +1,44 @@
+%p#notice= notice
+%p
+  %strong Name:
+  = @challenge.name
+%p
+  %strong Description:
+  = @challenge.description
+%p
+  %strong Start date:
+  = @challenge.start_date
+%p
+  %strong End date:
+  = @challenge.end_date
+%p
+  %strong Challenge img:
+  = image_tag @challenge.challenge_img.url
+%p
+  %strong Total offer:
+  = @challenge.total_offer
+
+%br
+%br
+
+.page-title
+  %h2 Actions
+
+  = link_to 'Add New Simpleshare', new_challenge_action_stub_path(@challenge, action_type: 'simpleshare'), class: 'btn btn-primary'
+
+  = link_to 'Add New Scavenger', new_challenge_action_stub_path(@challenge, action_type: 'scavenger'), class: 'btn btn-primary'
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th Name
+      %th Action Type
+      %th 
+
+  %tbody
+    - @action_stubs.each do |action|
+      %tr
+        %td= action.name
+        %td= action.as_action_stub_type
+        %td
+          = link_to 'Edit', edit_challenge_action_stub_path(@challenge, action)

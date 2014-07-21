@@ -15,6 +15,8 @@ gem 'gravatar'
 gem 'heritage'
 gem 'ckeditor'
 gem 'acts_as_relation', '~> 1.0'
+gem 'haml-rails'
+gem 'bootstrap-sass', '~> 3.1.1'
 
 group :doc do
   gem 'sdoc', require: false

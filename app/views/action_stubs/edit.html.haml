@@ -1,0 +1,9 @@
+%h1 
+  Edit
+  = format_action_type(@action_stub.specific)
+  Action
+
+= render 'form'
+= link_to 'Show', @action_stub
+|
+#{link_to 'Back', action_stubs_path}

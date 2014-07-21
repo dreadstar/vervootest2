@@ -1,0 +1,39 @@
+= form_for([@challenge, @action_stub]) do |g|
+  - if @action_stub.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@action_stub.errors.count, "error")
+        prohibited this action_stub from being saved:
+      %ul
+        - @action_stub.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = g.label :name
+    %br/
+    = g.text_field :name
+  .field
+    = g.label :description
+    %br/
+    = g.text_area :description
+  .field
+    = g.label :enabled
+    %br/
+    = g.check_box :enabled
+  .field
+    = g.label :amt
+    %br/
+    = g.text_field :amt
+
+  .field
+    = g.label :display_msg
+    %br/
+    = g.text_field :display_msg
+
+  .field
+    = g.label :network_filter_list
+    %br/
+    = g.text_field :network_filter_list
+
+
+  .actions
+    = g.submit
