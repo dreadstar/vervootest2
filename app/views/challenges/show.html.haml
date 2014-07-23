@@ -25,7 +25,7 @@
 .page-title
   %h2 Actions
 
-  = form_tag('/challenges/1/action_stubs/new', method: 'get', id: 'new-action', class: 'form-inline') do
+  = form_tag("/challenges/#{@challenge.id}/action_stubs/new", method: 'get', id: 'new-action', class: 'form-inline') do
     = select_tag "action_type", options_for_select(action_type_collection), class: 'form-control'
     = submit_tag 'Add New Action', class: 'btn btn-primary'
 
