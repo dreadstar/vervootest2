@@ -4,11 +4,7 @@ class ActionStubsController < ApplicationController
 
   def new
     @action_type = params[:action_type]
-    if @action_type == 'simpleshare'
-      @action_stub = ActionSimpleshare.new(challenge: @challenge)
-    else
-      @action_stub = ActionScavenger.new(challenge: @challenge)
-    end
+    @action_stub = generate_action_stub
   end
 
   def edit
@@ -38,6 +34,7 @@ class ActionStubsController < ApplicationController
 
   def destroy
     @action_stub.destroy
+    flash[:notice] = 'Action was successfully deleted'
     redirect_to challenge_path(@challenge)
   end
 
@@ -67,6 +64,14 @@ class ActionStubsController < ApplicationController
         ActionScavenger.new(action_params)
       else
         ActionSimpleshare.new(action_params)
+      end
+    end
+
+    def generate_action_stub
+      if @action_type == 'simpleshare'
+        @action_stub = ActionSimpleshare.new(challenge: @challenge)
+      else
+        @action_stub = ActionScavenger.new(challenge: @challenge)
       end
     end
 end

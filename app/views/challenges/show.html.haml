@@ -42,3 +42,5 @@
         %td= action.as_action_stub_type
         %td
           = link_to 'Edit', edit_challenge_action_stub_path(@challenge, action)
+          |
+          = link_to 'Destroy', challenge_action_stub_path(@challenge, action), method: :delete, data: { confirm: 'Are you sure?' }

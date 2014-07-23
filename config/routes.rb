@@ -1,8 +1,6 @@
 Vervootest2::Application.routes.draw do
   resources :action_stubs
 
-  resources :action_bases
-
   mount Ckeditor::Engine => '/ckeditor'
   get "vervoom/home"
   get "vervoom/challenges"
@@ -11,11 +9,8 @@ Vervootest2::Application.routes.draw do
   get "vervoom/nonprofits"
 
   resources :roles
-
   resources :sponsors
-
   resources :nonprofits
-  resource :actions
 
   resources :challenges do
     resources :action_stubs, except: [:index, :show]
