@@ -19,14 +19,15 @@
   = @challenge.total_offer
 
 %br
+= link_to 'Back to Challenges', challenges_path
 %br
 
 .page-title
   %h2 Actions
 
-  = link_to 'Add Simpleshare Action', new_challenge_action_stub_path(@challenge, action_type: 'simpleshare'), class: 'btn btn-primary'
-
-  = link_to 'Add Scavenger Action', new_challenge_action_stub_path(@challenge, action_type: 'scavenger'), class: 'btn btn-primary'
+  = form_tag('/challenges/1/action_stubs/new', method: 'get', id: 'new-action', class: 'form-inline') do
+    = select_tag "action_type", options_for_select(action_type_collection), class: 'form-control'
+    = submit_tag 'Add New Action', class: 'btn btn-primary'
 
 %table.table.table-striped
   %thead
