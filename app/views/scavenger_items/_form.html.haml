@@ -1,0 +1,28 @@
+= form_for([@challenge, @action_scavenger, @scavenger_item]) do |f|
+  - if @scavenger_item.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@scavenger_item.errors.count, "error")
+        prohibited this item from being saved:
+      %ul
+        - @scavenger_item.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :hint_msg
+    %br/
+    = f.text_field :hint_msg
+  .field
+    = f.label :found_msg
+    %br/
+    = f.text_area :found_msg
+  .field
+    = f.label :order
+    %br/
+    = f.check_box :order
+  .field
+    = f.label :find_amt
+    %br/
+    = f.text_field :find_amt
+
+  .actions
+    = f.submit

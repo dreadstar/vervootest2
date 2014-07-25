@@ -1,20 +1,5 @@
-%p#notice= notice
-%p
-  %strong Name:
-  = @action_stub.name
-%p
-  %strong Description:
-  = @action_stub.description
-%p
-  %strong Enabled:
-  = @action_stub.enabled
-%p
-  %strong Challenge:
-  = @action_stub.challenge_id
-%p
-  %strong Amt:
-  = @action_stub.amt
+- if @action_type == 'simpleshare'
+  = render 'action_stubs/simpleshare_detail'
+- else
+  = render 'action_stubs/scavenger_detail'
 
-= link_to 'Edit', edit_action_stub_path(@action_stub)
-|
-\#{link_to 'Back', action_stubs_path}

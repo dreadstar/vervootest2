@@ -1,5 +1,5 @@
 Vervootest2::Application.routes.draw do
-  resources :action_stubs
+  # resources :action_stubs
 
   mount Ckeditor::Engine => '/ckeditor'
   get "vervoom/home"
@@ -13,9 +13,11 @@ Vervootest2::Application.routes.draw do
   resources :nonprofits
 
   resources :challenges do
-    resources :action_stubs, except: [:index, :show]
-    resources :action_scavengers, only: [:create], to: 'action_stubs#create'
-    resources :action_simpleshares, only: [:create], to: 'action_stubs#create'
+    resources :action_stubs, except: [:index, :create]
+    resources :action_scavengers, only: [:create, :update] do
+      resources :scavenger_items, except: [:index, :show]
+    end
+    resources :action_simpleshares, only: [:create, :update]
   end
 
   devise_for :users

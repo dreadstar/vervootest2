@@ -1,4 +1,4 @@
-= form_for([@challenge, @action_stub]) do |g|
+= form_for([@challenge, @action_stub.specific]) do |f|
   - if @action_stub.errors.any?
     #error_explanation
       %h2
@@ -8,37 +8,36 @@
         - @action_stub.errors.full_messages.each do |msg|
           %li= msg
   .field
-    = g.label :name
+    = f.label :name
     %br/
-    = g.text_field :name
+    = f.text_field :name
   .field
-    = g.label :description
+    = f.label :description
     %br/
-    = g.text_area :description
+    = f.text_area :description
   .field
-    = g.label :enabled
+    = f.label :enabled
     %br/
-    = g.check_box :enabled
+    = f.check_box :enabled
   .field
-    = g.label :amt
+    = f.label :amt
     %br/
-    = g.text_field :amt
+    = f.text_field :amt
 
   .field
-    = g.label :start_msg
+    = f.label :start_msg
     %br/
-    = g.text_field :start_msg
+    = f.text_field :start_msg
 
   .field
-    = g.label :complete_msg
+    = f.label :complete_msg
     %br/
-    = g.text_field :complete_msg
+    = f.text_field :complete_msg
 
   .field
-    = g.label :team
+    = f.label :team
     %br/
-    = g.text_field :team
-
+    = f.text_field :team
 
   .actions
-    = g.submit
+    = f.submit

@@ -1,0 +1,26 @@
+%p#notice= notice
+%p
+  %strong Name:
+  = @action_stub.name
+%p
+  %strong Description:
+  = @action_stub.description
+%p
+  %strong Enabled:
+  = @action_stub.enabled
+%p
+  %strong Challenge:
+  = @action_stub.challenge_id
+%p
+  %strong Amt:
+  = @action_stub.amt
+%p
+  %strong Display Msg:
+  = @action_stub.display_msg
+%p
+  %strong Network Filter List:
+  = @action_stub.network_filter_list
+
+= link_to 'Edit', edit_challenge_action_stub_path(@challenge, @action_stub)
+|
+\#{link_to 'Back', challenge_path(@challenge)}

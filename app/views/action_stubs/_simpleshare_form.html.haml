@@ -1,4 +1,4 @@
-= form_for([@challenge, @action_stub]) do |g|
+= form_for([@challenge, @action_stub.specific]) do |g|
   - if @action_stub.errors.any?
     #error_explanation
       %h2

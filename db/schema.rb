@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140719001021) do
+ActiveRecord::Schema.define(version: 20140724011738) do
 
   create_table "action_scavengers", force: true do |t|
     t.boolean  "team"
@@ -131,13 +131,13 @@ ActiveRecord::Schema.define(version: 20140719001021) do
   end
 
   create_table "scavenger_items", force: true do |t|
-    t.integer  "action_savenger_id"
+    t.integer  "action_scavenger_id"
     t.text     "hint_msg"
     t.text     "found_msg"
-    t.decimal  "order",              precision: 10, scale: 0
+    t.decimal  "order",               precision: 10, scale: 0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "find_amt",           precision: 10, scale: 0
+    t.decimal  "find_amt",            precision: 10, scale: 0
   end
 
   create_table "sponsors", force: true do |t|
