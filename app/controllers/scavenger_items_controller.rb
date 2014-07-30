@@ -1,14 +1,13 @@
 class ScavengerItemsController < ApplicationController
   before_action :find_challenge, only: [:new, :edit, :create, :update, :destroy]
   before_action :find_action_scavenger, except: [:index, :show]
-  before_action :find_scavenger_item, only: [:create, :update, :destroy]
+  before_action :find_scavenger_item, only: [:update, :destroy, :edit]
 
   def new
     @scavenger_item = ScavengerItem.new
   end
 
   def edit
-    @scavenger_item = ScavengerItem.find(params[:id])
   end
 
   def update
