@@ -1,0 +1,63 @@
+= form_for @challenge, :html => { :multipart => true }  do |f|
+  - if @challenge.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@challenge.errors.count, "error")
+        prohibited this challenge from being saved:
+      %ul
+        - @challenge.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :name
+    %br/
+    = f.text_field :name
+  .field
+    = f.label :description
+    %br/
+    = f.text_area :description
+  .field
+    = f.label :start_date
+    %br/
+    = f.datetime_select :start_date
+  .field
+    = f.label :end_date
+    %br/
+    = f.datetime_select :end_date
+  .field
+    = f.label :challenge_img
+    %br/
+    = f.file_field :challenge_img
+  .field
+    = f.label :img_thumb_url
+    %br/
+    = f.file_field :img_thumb_url
+  .field
+    = f.label :logo_url
+    %br/
+    = f.text_field :logo_url
+  .field
+    = f.label :total_offer
+    %br/
+    = f.text_field :total_offer
+  .field
+    = f.label :amount_raised
+    %br/
+    = f.text_field :amount_raised
+  .field
+    = f.label :sponsor_blurb
+    %br/
+    = f.text_area :sponsor_blurb
+  .field
+    = f.label :charity_blurb
+    %br/
+    = f.text_area :charity_blurb
+  .field
+    = f.label :enabled
+    %br/
+    = f.check_box :enabled
+  .field
+    = f.label :seo_name
+    %br/
+    = f.text_field :seo_name
+  .actions
+    = f.submit

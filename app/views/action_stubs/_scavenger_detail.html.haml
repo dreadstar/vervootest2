@@ -1,0 +1,56 @@
+%p#notice= notice
+%p
+  %strong Name:
+  = @action_stub.name
+%p
+  %strong Description:
+  = @action_stub.description
+%p
+  %strong Enabled:
+  = @action_stub.enabled
+%p
+  %strong Challenge:
+  = @action_stub.challenge_id
+%p
+  %strong Amt:
+  = @action_stub.amt
+%p
+  %strong Team:
+  = @action_stub.team
+%p
+  %strong Start Msg:
+  = @action_stub.start_msg
+%p
+  %strong Complete Msg:
+  = @action_stub.complete_msg
+
+%br
+.page-title
+  %h2 Scavenger Items
+  = link_to 'New Scavenger Item', new_challenge_action_scavenger_scavenger_item_path(@challenge, @action_stub.specific), class: 'btn btn-primary'
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th Hint Msg
+      %th Fount Msg
+      %th Order
+      %th Find Amt
+      %th
+
+  %tbody
+    - @action_stub.specific.scavenger_items.each do |item|
+      %tr
+        %td= item.hint_msg
+        %td= item.found_msg
+        %td= item.order
+        %td= item.find_amt
+        %td
+          = link_to 'Edit', edit_challenge_action_scavenger_scavenger_item_path(@challenge, @action_stub.specific, item)
+          |
+          = link_to 'Destroy', challenge_action_scavenger_scavenger_item_path(@challenge, @action_stub.specific, item), method: :delete, data: { confirm: 'Are you sure?' }
+
+
+= link_to 'Edit', edit_challenge_action_stub_path(@challenge, @action_stub)
+|
+\#{link_to 'Back', challenge_path(@challenge)}

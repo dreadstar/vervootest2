@@ -10,6 +10,8 @@ class ChallengesController < ApplicationController
   # GET /challenges/1
   # GET /challenges/1.json
   def show
+    @challenge = Challenge.find(params[:id])
+    @action_stubs = @challenge.action_stubs
   end
 
   # GET /challenges/new

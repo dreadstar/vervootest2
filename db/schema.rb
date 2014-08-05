@@ -11,19 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131007172355) do
-
-  create_table "action_bases", force: true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.boolean  "enabled"
-    t.integer  "challenge_id"
-    t.decimal  "amt",          precision: 10, scale: 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "heir"
-    t.string   "heir_type"
-  end
+ActiveRecord::Schema.define(version: 20140724011738) do
 
   create_table "action_scavengers", force: true do |t|
     t.boolean  "team"
@@ -33,28 +21,23 @@ ActiveRecord::Schema.define(version: 20131007172355) do
     t.text     "complete_msg"
   end
 
+  create_table "action_simpleshares", force: true do |t|
+    t.text     "display_msg"
+    t.string   "network_filter_list"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "action_stubs", force: true do |t|
     t.string   "name"
     t.text     "description"
     t.boolean  "enabled"
     t.integer  "challenge_id"
-    t.integer  "heir"
-    t.string   "heir_type"
+    t.decimal  "amt",                 precision: 10, scale: 0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "amt",          precision: 10, scale: 3
-  end
-
-  create_table "actions", force: true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.boolean  "enabled"
-    t.integer  "challenge_id"
-    t.decimal  "amt",          precision: 10, scale: 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "heir_type"
-    t.integer  "heir_id"
+    t.integer  "as_action_stub_id"
+    t.string   "as_action_stub_type"
   end
 
   create_table "challenges", force: true do |t|
@@ -68,6 +51,7 @@ ActiveRecord::Schema.define(version: 20131007172355) do
     t.text     "charity_blurb"
     t.boolean  "enabled"
     t.string   "seo_name"
+    t.string   "img_thumb_url"
     t.string   "logo_url"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -147,13 +131,13 @@ ActiveRecord::Schema.define(version: 20131007172355) do
   end
 
   create_table "scavenger_items", force: true do |t|
-    t.integer  "action_savenger_id"
+    t.integer  "action_scavenger_id"
     t.text     "hint_msg"
     t.text     "found_msg"
-    t.decimal  "order",              precision: 10, scale: 0
+    t.decimal  "order",               precision: 10, scale: 0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "find_amt",           precision: 10, scale: 0
+    t.decimal  "find_amt",            precision: 10, scale: 0
   end
 
   create_table "sponsors", force: true do |t|

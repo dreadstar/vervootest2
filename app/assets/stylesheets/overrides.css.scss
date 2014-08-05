@@ -1,0 +1,39 @@
+@import 'bootstrap';
+
+body { padding-top: 60px; }
+
+.page-title {
+
+  display: block;
+  width: 100%;
+  float: left;
+  margin-top: 20px;
+
+  h1 {
+    display: block;
+    float: left;
+    margin-top: 0px;
+  }
+
+  h2 {
+    display: block;
+    float: left;
+    margin-top: 0px;
+  }
+
+  form#new-action {
+    float: right;
+  }
+
+
+  a.btn-primary {
+    display: inline-block;
+    float: right;
+    color: #fff !important;
+    margin-left: 5px;
+  }
+}
+
+table {
+  float: left;
+}

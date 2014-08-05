@@ -1,0 +1,25 @@
+%h1 Listing action_stubs
+%table
+  %thead
+    %tr
+      %th Name
+      %th Description
+      %th Enabled
+      %th Challenge
+      %th Amt
+      %th
+      %th
+      %th
+  %tbody
+    - @action_stubs.each do |action_stub|
+      %tr
+        %td= action_stub.name
+        %td= action_stub.description
+        %td= action_stub.enabled
+        %td= action_stub.challenge_id
+        %td= action_stub.amt
+        %td= link_to 'Show', action_stub
+        %td= link_to 'Edit', edit_action_stub_path(action_stub)
+        %td= link_to 'Destroy', action_stub, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Action stub', new_action_stub_path
