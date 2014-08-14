@@ -80,7 +80,7 @@ class ChallengesController < ApplicationController
     @challenge = Challenge.where(id: params[:challenge_id]).first
     @sponsor = Sponsor.where(id: params[:sponsor_id]).first
 
-    return missing_option_error unless params[:nonprofit_id].present?
+    return missing_option_error unless params[:sponsor_id].present?
 
     if @sponsor
       return already_added_error(@sponsor) if @challenge.sponsors.include?(@sponsor)
