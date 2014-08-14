@@ -35,10 +35,12 @@
         %thead
           %tr
             %th Name
+            %th Action
         %tbody
           - @challenge.nonprofits.each do |nonprofit|
             %tr
               %td= nonprofit.name
+              %td= link_to 'remove', challenge_remove_nonprofit_path(@challenge, nonprofit), method: :put, 'data-confirm' => "Are you sure you want to remove #{nonprofit.name} from this challenge?"
 
   .col-md-6
     .page-title
@@ -52,10 +54,12 @@
         %thead
           %tr
             %th Name
+            %th Action
         %tbody
           - @challenge.sponsors.each do |sponsor|
             %tr
               %td= sponsor.name
+              %td= link_to 'remove', challenge_remove_sponsor_path(@challenge, sponsor), method: :put, 'data-confirm' => "Are you sure you want to remove #{sponsor.name} from this challenge?"
 %hr
 .row
   .col-md-12

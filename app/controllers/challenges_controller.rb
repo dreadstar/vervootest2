@@ -45,8 +45,10 @@ class ChallengesController < ApplicationController
   end
 
   def add_nonprofit
-    @challenge = Challenge.find(params[:challenge_id])
-    @nonprofit = Nonprofit.find(params[:nonprofit_id])
+    @challenge = Challenge.where(id: params[:challenge_id]).first
+    @nonprofit = Nonprofit.where(id: params[:nonprofit_id]).first
+
+    return missing_option_error unless params[:nonprofit_id].present?
 
     if @nonprofit
       return already_added_error(@nonprofit) if @challenge.nonprofits.include?(@nonprofit)
@@ -61,9 +63,24 @@ class ChallengesController < ApplicationController
     end
   end
 
+  def remove_nonprofit
+    @challenge = Challenge.where(id: params[:challenge_id]).first
+    @nonprofit = Nonprofit.where(id: params[:id]).first
+
+    if @nonprofit
+      @challenge.nonprofits.delete(@nonprofit)
+      flash[:notice] = "#{@nonprofit.name} has been removed from the challenge."
+      redirect_to challenge_path(@challenge)
+    else
+      flash.now[:alert] = 'The nonprofit could not be found'
+    end
+  end
+
   def add_sponsor
-    @challenge = Challenge.find(params[:challenge_id])
-    @sponsor = Sponsor.find(params[:sponsor_id])
+    @challenge = Challenge.where(id: params[:challenge_id]).first
+    @sponsor = Sponsor.where(id: params[:sponsor_id]).first
+
+    return missing_option_error unless params[:nonprofit_id].present?
 
     if @sponsor
       return already_added_error(@sponsor) if @challenge.sponsors.include?(@sponsor)
@@ -76,6 +93,19 @@ class ChallengesController < ApplicationController
     else
       flash.now[:alert] = 'There was an error adding this sponsor to the challenge'
       render :show
+    end
+  end
+
+  def remove_sponsor
+    @challenge = Challenge.where(id: params[:challenge_id]).first
+    @sponsor = Sponsor.where(id: params[:id]).first
+
+    if @sponsor
+      @challenge.sponsors.delete(@sponsor)
+      flash[:notice] = "#{@sponsor.name} has been removed from the challenge."
+      redirect_to challenge_path(@challenge)
+    else
+      flash.now[:alert] = 'The sponsor could not be found'
     end
   end
 
@@ -94,6 +124,11 @@ class ChallengesController < ApplicationController
 
     def already_added_error(resource)
       flash.now[:alert]= "#{resource.name} has already been added to this Challenge."
+      render :show
+    end
+
+    def missing_option_error
+      flash.now[:alert]= "Please select an option."
       render :show
     end
 
