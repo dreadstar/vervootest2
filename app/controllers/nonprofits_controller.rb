@@ -1,14 +1,10 @@
 class NonprofitsController < ApplicationController
   before_action :set_nonprofit, only: [:show, :edit, :update, :destroy]
 
-  # GET /nonprofits
-  # GET /nonprofits.json
   def index
     @nonprofits = Nonprofit.all
   end
 
-  # GET /nonprofits/1
-  # GET /nonprofits/1.json
   def show
   end
 
@@ -21,8 +17,6 @@ class NonprofitsController < ApplicationController
   def edit
   end
 
-  # POST /nonprofits
-  # POST /nonprofits.json
   def create
     @nonprofit = Nonprofit.new(nonprofit_params)
 
@@ -37,8 +31,6 @@ class NonprofitsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /nonprofits/1
-  # PATCH/PUT /nonprofits/1.json
   def update
     respond_to do |format|
       if @nonprofit.update(nonprofit_params)
@@ -51,8 +43,6 @@ class NonprofitsController < ApplicationController
     end
   end
 
-  # DELETE /nonprofits/1
-  # DELETE /nonprofits/1.json
   def destroy
     @nonprofit.destroy
     respond_to do |format|

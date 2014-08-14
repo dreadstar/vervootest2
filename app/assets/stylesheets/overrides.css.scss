@@ -9,7 +9,7 @@ body { padding-top: 60px; }
   float: left;
   margin-top: 20px;
 
-  h1 {
+  #h1 {
     display: block;
     float: left;
     margin-top: 0px;
@@ -21,7 +21,7 @@ body { padding-top: 60px; }
     margin-top: 0px;
   }
 
-  form#new-action {
+  form#new-action, form#add-nonprofit, form#add-sponsor {
     float: right;
   }
 

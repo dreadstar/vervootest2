@@ -13,6 +13,9 @@ Vervootest2::Application.routes.draw do
   resources :nonprofits
 
   resources :challenges do
+    put '/add_sponsor', to: 'challenges#add_sponsor', as: 'add_sponsor'
+    put '/add_nonprofit', to: 'challenges#add_nonprofit', as: 'add_nonprofit'
+
     resources :action_stubs, except: [:index, :create]
     resources :action_scavengers, only: [:create, :update] do
       resources :scavenger_items, except: [:index, :show]

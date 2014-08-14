@@ -1,0 +1,43 @@
+%p#notice= notice
+%p
+  %strong Email:
+  = @nonprofit.email
+%p
+  %strong Enabled:
+  = @nonprofit.enabled
+%p
+  %strong Name:
+  = @nonprofit.name
+%p
+  %strong Address1:
+  = @nonprofit.address1
+%p
+  %strong Address2:
+  = @nonprofit.address2
+%p
+  %strong City:
+  = @nonprofit.city
+%p
+  %strong State:
+  = @nonprofit.state
+%p
+  %strong Province:
+  = @nonprofit.province
+%p
+  %strong Postal code:
+  = @nonprofit.postal_code
+%p
+  %strong Country:
+  = @nonprofit.country
+%p
+  %strong Phone number:
+  = @nonprofit.phone_number
+%p
+  %strong Website:
+  = @nonprofit.website
+%p
+  %strong Seo name:
+  = @nonprofit.seo_name
+= link_to 'Edit', edit_nonprofit_path(@nonprofit)
+|
+\#{link_to 'Back', nonprofits_path}

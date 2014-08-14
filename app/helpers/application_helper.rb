@@ -7,4 +7,24 @@ module ApplicationHelper
     [["Scavenger", "scavenger"], ["Simpleshare", "simpleshare"]]
   end
 
+  def available_nonprofits
+    collection = []
+
+    Nonprofit.all.each do |nonprofit|
+      collection << [nonprofit.name, nonprofit.id]
+    end
+
+    collection
+  end
+
+  def available_sponsors
+    collection = []
+
+    Sponsor.all.each do |nonprofit|
+      collection << [nonprofit.name, nonprofit.id]
+    end
+
+    collection
+  end
+
 end
