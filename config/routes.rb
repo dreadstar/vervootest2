@@ -1,6 +1,4 @@
 Vervootest2::Application.routes.draw do
-  # resources :action_stubs
-
   mount Ckeditor::Engine => '/ckeditor'
   get "vervoom/home"
   get "vervoom/challenges"
@@ -25,6 +23,11 @@ Vervootest2::Application.routes.draw do
     resources :action_simpleshares, only: [:create, :update]
   end
 
-  devise_for :users
+  devise_for :users, skip: [:registrations, :passwords]
+
+  devise_scope :user do
+    get '/signin' => 'devise/sessions#new'
+    delete '/signout' => 'devise/sessions#destroy', as: :signout
+  end
   root :to => "vervoom#home"
 end
