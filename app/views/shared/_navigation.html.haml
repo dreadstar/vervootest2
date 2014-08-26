@@ -16,7 +16,7 @@
         %li.dropdown
           - if user_signed_in?
             %a.dropdown-toggle{'data-toggle' => 'dropdown', href: '#'}
-              = current_user.username
+              = current_user.email
               %b.caret
             %ul.dropdown-menu.animated.fadeInRight
               %span.arrow.top

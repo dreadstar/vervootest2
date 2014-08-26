@@ -27,7 +27,9 @@ Vervootest2::Application.routes.draw do
 
   devise_scope :user do
     get '/signin' => 'devise/sessions#new'
+    # post '/signin' => 'devise/sessions#create'
     delete '/signout' => 'devise/sessions#destroy', as: :signout
   end
+
   root :to => "vervoom#home"
 end
