@@ -25,9 +25,10 @@ Vervootest2::Application.routes.draw do
 
   devise_for :users, skip: [:registrations, :passwords]
 
+  resources :users, only: [:index, :new, :show, :create, :destroy]
+
   devise_scope :user do
     get '/signin' => 'devise/sessions#new'
-    # post '/signin' => 'devise/sessions#create'
     delete '/signout' => 'devise/sessions#destroy', as: :signout
   end
 

@@ -1,0 +1,23 @@
+.page-title
+  %h1 Admins
+
+  = link_to 'Add New Admin', new_user_path, class: 'btn btn-primary'
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th Email
+      %th First Name
+      %th Last Name
+      %th
+
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= user.email
+        %td= user.name_first
+        %td= user.name_last
+        %td
+          = link_to 'View', user_path(user)
+          |
+          = link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }
