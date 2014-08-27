@@ -25,12 +25,15 @@ Vervootest2::Application.routes.draw do
 
   devise_for :users, skip: [:registrations, :passwords]
 
-  resources :users, only: [:index, :new, :show, :create, :destroy]
 
   devise_scope :user do
     get '/signin' => 'devise/sessions#new'
     delete '/signout' => 'devise/sessions#destroy', as: :signout
+    get 'users/edit' => 'devise/registrations#edit', :as => 'profile'
+    put 'users' => 'devise/registrations#update', :as => 'user_registration'
   end
+
+  resources :users, only: [:index, :new, :show, :create, :destroy]
 
   root :to => "vervoom#home"
 end
