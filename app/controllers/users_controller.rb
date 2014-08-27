@@ -22,6 +22,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    if User.count > 1
+      @user = User.find(params[:id])
+      @user.destroy
+      flash[:notice] = 'Admin was successfully removed'
+      redirect_to users_path
+    else
+      flash[:alert] = 'Cannot delete the last remaining admin'
+      redirect_to users_path
+    end
+  end
+
   private
 
   def user_params
