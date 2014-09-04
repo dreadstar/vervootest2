@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140724011738) do
+ActiveRecord::Schema.define(version: 20140904000125) do
 
   create_table "action_scavengers", force: true do |t|
     t.boolean  "team"
@@ -38,6 +38,13 @@ ActiveRecord::Schema.define(version: 20140724011738) do
     t.datetime "updated_at"
     t.integer  "as_action_stub_id"
     t.string   "as_action_stub_type"
+  end
+
+  create_table "challenge_memberships", force: true do |t|
+    t.integer  "challenge_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "challenges", force: true do |t|
@@ -74,11 +81,6 @@ ActiveRecord::Schema.define(version: 20140724011738) do
   create_table "challenges_sponsors", force: true do |t|
     t.integer "challenge_id"
     t.integer "sponsor_id"
-  end
-
-  create_table "challenges_teammembers", force: true do |t|
-    t.integer "challenge_id"
-    t.integer "user_id"
   end
 
   create_table "ckeditor_assets", force: true do |t|
