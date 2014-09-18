@@ -1,0 +1,43 @@
+%p#notice= notice
+%p
+  %strong Email:
+  = @sponsor.email
+%p
+  %strong Enabled:
+  = @sponsor.enabled
+%p
+  %strong Name:
+  = @sponsor.name
+%p
+  %strong Address1:
+  = @sponsor.address1
+%p
+  %strong Address2:
+  = @sponsor.address2
+%p
+  %strong City:
+  = @sponsor.city
+%p
+  %strong State:
+  = @sponsor.state
+%p
+  %strong Province:
+  = @sponsor.province
+%p
+  %strong Postal code:
+  = @sponsor.postal_code
+%p
+  %strong Country:
+  = @sponsor.country
+%p
+  %strong Phone number:
+  = @sponsor.phone_number
+%p
+  %strong Website:
+  = @sponsor.website
+%p
+  %strong Seo name:
+  = @sponsor.seo_name
+= link_to 'Edit', edit_sponsor_path(@sponsor)
+|
+\#{link_to 'Back', sponsors_path}

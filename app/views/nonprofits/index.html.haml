@@ -1,0 +1,33 @@
+.page-title
+  %h1 Nonprofits
+
+  = link_to 'New Nonprofit', new_nonprofit_path, class: 'btn btn-primary'
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th Name
+      %th Email
+      %th Enabled
+      %th City
+      %th State
+      %th Phone number
+      %th Website
+      %th Actions
+  %tbody
+    - @nonprofits.each do |nonprofit|
+      %tr
+        %td= nonprofit.name
+        %td= nonprofit.email
+        %td= nonprofit.enabled
+        %td= nonprofit.city
+        %td= nonprofit.state
+        %td= nonprofit.phone_number
+        %td= nonprofit.website
+        %td
+          = link_to 'View', nonprofit
+          |
+          = link_to 'Edit', edit_nonprofit_path(nonprofit)
+          |
+          = link_to 'Destroy', nonprofit, method: :delete, data: { confirm: 'Are you sure?' }
+%br/

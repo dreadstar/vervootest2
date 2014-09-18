@@ -22,28 +22,69 @@
 = link_to 'Back to Challenges', challenges_path
 %br
 
-.page-title
-  %h2 Actions
+.row
+  .col-md-6
+    .page-title
+      %h2
+        Nonprofits
+      = form_tag("/challenges/#{@challenge.id}/add_nonprofit", method: 'put', id: 'add-nonprofit', class: 'form-inline') do
+        = select_tag 'nonprofit_id', options_for_select(available_nonprofits), prompt: 'Select Nonprofit', class: 'form-control'
+        = submit_tag 'Add Nonprofit', class: 'btn btn-primary'
 
-  = form_tag("/challenges/#{@challenge.id}/action_stubs/new", method: 'get', id: 'new-action', class: 'form-inline') do
-    = select_tag "action_type", options_for_select(action_type_collection), class: 'form-control'
-    = submit_tag 'Add New Action', class: 'btn btn-primary'
+      %table.table.table-striped
+        %thead
+          %tr
+            %th Name
+            %th Action
+        %tbody
+          - @challenge.nonprofits.each do |nonprofit|
+            %tr
+              %td= nonprofit.name
+              %td= link_to 'remove', challenge_remove_nonprofit_path(@challenge, nonprofit), method: :put, 'data-confirm' => "Are you sure you want to remove #{nonprofit.name} from this challenge?"
 
-%table.table.table-striped
-  %thead
-    %tr
-      %th Name
-      %th Action Type
-      %th
+  .col-md-6
+    .page-title
+      %h2
+        Sponsors
+      = form_tag("/challenges/#{@challenge.id}/add_sponsor", method: 'put', id: 'add-sponsor', class: 'form-inline') do
+        = select_tag 'sponsor_id', options_for_select(available_sponsors), prompt: 'Select Sponsor', class: 'form-control'
+        = submit_tag 'Add Sponsor', class: 'btn btn-primary'
 
-  %tbody
-    - @action_stubs.each do |action|
-      %tr
-        %td= action.name
-        %td= action.as_action_stub_type
-        %td
-          = link_to 'View', challenge_action_stub_path(@challenge, action)
-          |
-          = link_to 'Edit', edit_challenge_action_stub_path(@challenge, action)
-          |
-          = link_to 'Destroy', challenge_action_stub_path(@challenge, action), method: :delete, data: { confirm: 'Are you sure?' }
+      %table.table.table-striped
+        %thead
+          %tr
+            %th Name
+            %th Action
+        %tbody
+          - @challenge.sponsors.each do |sponsor|
+            %tr
+              %td= sponsor.name
+              %td= link_to 'remove', challenge_remove_sponsor_path(@challenge, sponsor), method: :put, 'data-confirm' => "Are you sure you want to remove #{sponsor.name} from this challenge?"
+%hr
+.row
+  .col-md-12
+    .page-title
+      %h2 Actions
+
+      = form_tag("/challenges/#{@challenge.id}/action_stubs/new", method: 'get', id: 'new-action', class: 'form-inline') do
+        = select_tag "action_type", options_for_select(action_type_collection), class: 'form-control'
+        = submit_tag 'Add New Action', class: 'btn btn-primary'
+
+    %table.table.table-striped
+      %thead
+        %tr
+          %th Name
+          %th Action Type
+          %th
+
+      %tbody
+        - @challenge.action_stubs.each do |action|
+          %tr
+            %td= action.name
+            %td= action.as_action_stub_type
+            %td
+              = link_to 'View', challenge_action_stub_path(@challenge, action)
+              |
+              = link_to 'Edit', edit_challenge_action_stub_path(@challenge, action)
+              |
+              = link_to 'Destroy', challenge_action_stub_path(@challenge, action), method: :delete, data: { confirm: 'Are you sure?' }

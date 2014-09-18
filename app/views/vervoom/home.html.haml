@@ -1,0 +1,14 @@
+%h1 Vervoom#home
+%ul
+  %li
+    %a{:href => "/"} Home
+
+  - if user_signed_in?
+    %li
+      = link_to 'Challenges', challenges_path
+    %li
+      = link_to 'Non Profits', nonprofits_path
+    %li
+      = link_to 'Sponsors', sponsors_path
+    %li
+      = link_to 'Admins', users_path

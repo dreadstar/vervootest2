@@ -1,0 +1,33 @@
+.page-title
+  %h1 Sponsors
+
+  = link_to 'New Sponsor', new_sponsor_path, class: 'btn btn-primary'
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th Email
+      %th Enabled
+      %th Name
+      %th City
+      %th State
+      %th Phone number
+      %th Website
+      %th Actions
+  %tbody
+    - @sponsors.each do |sponsor|
+      %tr
+        %td= sponsor.email
+        %td= sponsor.enabled
+        %td= sponsor.name
+        %td= sponsor.city
+        %td= sponsor.state
+        %td= sponsor.phone_number
+        %td= sponsor.website
+        %td
+          = link_to 'Show', sponsor
+          |
+          = link_to 'Edit', edit_sponsor_path(sponsor)
+          |
+          = link_to 'Destroy', sponsor, method: :delete, data: { confirm: 'Are you sure?' }
+%br/

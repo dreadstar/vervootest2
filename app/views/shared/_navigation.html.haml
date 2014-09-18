@@ -11,3 +11,18 @@
       %ul.nav.navbar-nav
         %li.active
           = link_to 'Home', root_path
+
+      %ul.nav.navbar-nav.navbar-right
+        %li.dropdown
+          - if user_signed_in?
+            %a.dropdown-toggle{'data-toggle' => 'dropdown', href: '#'}
+              = current_user.email
+              %b.caret
+            %ul.dropdown-menu.animated.fadeInRight
+              %span.arrow.top
+              %li
+                = link_to 'Profile', profile_path
+              %li
+                = link_to 'Sign Out', signout_path, method: :delete
+          - else
+            = link_to 'Sign In', signin_path
