@@ -13,10 +13,19 @@
   = @challenge.end_date
 %p
   %strong Challenge img:
-  = image_tag @challenge.challenge_img.url
+  - if @challenge.challenge_img.exists?
+    = image_tag @challenge.challenge_img.url
 %p
-  %strong Total offer:
-  = @challenge.total_offer
+  %strong Thumb img:
+  - if @challenge.img_thumb_url.exists?
+    = image_tag @challenge.img_thumb_url.url
+%p
+  %strong Logo img:
+  - if @challenge.logo_url.exists?
+    = image_tag @challenge.logo_url.url
+%p
+%strong Total offer:
+= @challenge.total_offer
 
 %br
 = link_to 'Back to Challenges', challenges_path

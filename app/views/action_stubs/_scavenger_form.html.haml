@@ -20,6 +20,10 @@
     %br/
     = f.check_box :enabled
   .field
+    = f.label :seqreveal_flag
+    %br/
+    = f.check_box :seqreveal_flag
+  .field
     = f.label :amt
     %br/
     = f.text_field :amt
@@ -37,7 +41,7 @@
   .field
     = f.label :team
     %br/
-    = f.text_field :team
+    = f.check_box :team
 
   .actions
     = f.submit

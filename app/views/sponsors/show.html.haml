@@ -9,6 +9,14 @@
   %strong Name:
   = @sponsor.name
 %p
+  %strong Thumb img:
+  - if @sponsor.image_thumb.exists?
+    = image_tag @sponsor.image_thumb.url
+%p
+  %strong Full img:
+  - if @sponsor.image_full.exists?
+    = image_tag @sponsor.image_full.url
+%p
   %strong Address1:
   = @sponsor.address1
 %p

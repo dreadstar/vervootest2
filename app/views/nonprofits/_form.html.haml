@@ -1,4 +1,4 @@
-= form_for(@nonprofit) do |f|
+= form_for @nonprofit, :html => { :multipart => true }  do |f|
   - if @nonprofit.errors.any?
     #error_explanation
       %h2
@@ -19,6 +19,14 @@
     = f.label :enabled
     %br/
     = f.check_box :enabled
+  .field
+    = f.label :image_full
+    %br/
+    = f.file_field :image_full
+  .field
+    = f.label :image_thumb
+    %br/
+    = f.file_field :image_thumb
   .field
     = f.label :address1
     %br/

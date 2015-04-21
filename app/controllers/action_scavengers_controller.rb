@@ -30,6 +30,6 @@ class ActionScavengersController < ApplicationController
     end
 
     def scavenger_params
-      params.require(:action_scavenger).permit(:name, :description, :enabled, :challenge_id, :amt, :team, :start_msg, :complete_msg)
+      params.require(:action_scavenger).permit(:name, :description, :enabled, :challenge_id, :amt, :team, :start_msg, :complete_msg,:seqreveal_flag)
     end
 end

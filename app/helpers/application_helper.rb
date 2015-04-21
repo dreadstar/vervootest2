@@ -27,4 +27,14 @@ module ApplicationHelper
     collection
   end
 
+  def available_prereqs(action_scavenger, scavenger_item)
+    collection = []
+    # action_scavenger.scavenger_items.where(["prereq_id not in (?) and prereq_id != ?",scavenger_item.prereq_ids,scavenger_item.id]).each do |prereq|
+    action_scavenger.scavenger_items.where(["id != ?",scavenger_item.id]).each do |prereq|
+      collection << [prereq.name, prereq.id]
+    end
+
+    collection
+  end
+
 end

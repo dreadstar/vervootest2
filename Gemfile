@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.1.4'
+gem 'rails', '>=4.0.2'
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -17,6 +17,7 @@ gem 'ckeditor'
 gem 'acts_as_relation', '~> 1.0'
 gem 'haml-rails'
 gem 'bootstrap-sass', '~> 3.1.1'
+gem 'yaml_db'
 
 group :doc do
   gem 'sdoc', require: false
@@ -25,7 +26,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'factory_girl_rails'
+#  gem 'factory_girl_rails'
   gem 'selenium-webdriver'
   gem 'pry'
 end
@@ -42,5 +43,9 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
 end
+group :production do
+  gem 'unicorn'
+  gem 'unicorn-worker-killer'
+end
 gem 'mina'
-ruby '2.1.1'
+ruby '2.1.3'

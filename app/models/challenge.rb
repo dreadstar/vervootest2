@@ -10,6 +10,11 @@ class Challenge < ActiveRecord::Base
 
   has_attached_file :challenge_img
   has_attached_file  :img_thumb_url
+  has_attached_file  :logo_url
+
+  # validates_attachment_content_type :challenge_img, :content_type => /\Aimage\/.*\Z/
+  # validates_attachment_content_type :img_thumb_url, :content_type => /\Aimage\/.*\Z/
+  # validates_attachment_content_type :logo_url, :content_type => /\Aimage\/.*\Z/
 
   accepts_nested_attributes_for :action_stubs, :reject_if => lambda { |a| a[:name].blank? }, :allow_destroy => true
 end

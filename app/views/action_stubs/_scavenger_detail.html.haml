@@ -9,6 +9,9 @@
   %strong Enabled:
   = @action_stub.enabled
 %p
+  %strong Sequential Reveal:
+  = @action_stub.seqreveal_flag
+%p
   %strong Challenge:
   = @action_stub.challenge_id
 %p
@@ -32,8 +35,8 @@
 %table.table.table-striped
   %thead
     %tr
-      %th Hint Msg
-      %th Fount Msg
+      %th Name/Hint Msg
+      %th PreRequisites
       %th Order
       %th Find Amt
       %th
@@ -41,8 +44,21 @@
   %tbody
     - @action_stub.specific.scavenger_items.each do |item|
       %tr
-        %td= item.hint_msg
-        %td= item.found_msg
+        %td #{item.name.length ? item.name : item.hint_msg}
+        %td
+          %table.table.table-striped
+            %thead
+              %tr
+                %th
+                  =form_tag(challenge_action_scavenger_scavenger_item_add_prereq_path(@challenge, @action_stub.specific.id, item), method: 'put', id: 'add-prereq', class: 'form-inline') do
+                    = select_tag 'prereq_id', options_for_select(available_prereqs(@action_stub.specific,item)), prompt: 'Select PreReq', class: 'form-control'
+                    = submit_tag 'Add', class: 'btn btn-primary'
+            %tbody
+              - item.prereqs.each do |preqitem|
+                %tr
+                  %td #{preqitem.name.length ? preqitem.name : preqitem.hint_msg}
+                  %td
+                    = link_to 'remove', challenge_action_scavenger_scavenger_item_remove_prereq_path(@challenge, @action_stub.specific, item,preqitem), method: :put, 'data-confirm' =>   "Are you sure you want to remove #{preqitem.name} from this item?"
         %td= item.order
         %td= item.find_amt
         %td

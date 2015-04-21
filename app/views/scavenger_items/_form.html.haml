@@ -8,6 +8,10 @@
         - @scavenger_item.errors.full_messages.each do |msg|
           %li= msg
   .field
+    = f.label :name
+    %br/
+    = f.text_field :name
+  .field
     = f.label :hint_msg
     %br/
     = f.text_field :hint_msg
@@ -18,11 +22,14 @@
   .field
     = f.label :order
     %br/
-    = f.check_box :order
+    = f.text_field :order
   .field
     = f.label :find_amt
     %br/
     = f.text_field :find_amt
-
+  .field
+    = f.label :prereq_flag
+    %br/
+    = f.check_box :prereq_flag
   .actions
     = f.submit
