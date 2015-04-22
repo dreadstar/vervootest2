@@ -44,7 +44,7 @@
   %tbody
     - @action_stub.specific.scavenger_items.each do |item|
       %tr
-        %td #{item.name.length ? item.name : item.hint_msg}
+        %td #{!item.name.blank? ? item.name : item.hint_msg}
         %td
           %table.table.table-striped
             %thead
@@ -56,7 +56,7 @@
             %tbody
               - item.prereqs.each do |preqitem|
                 %tr
-                  %td #{preqitem.name.length ? preqitem.name : preqitem.hint_msg}
+                  %td #{!preqitem.name.blank? ? preqitem.name : preqitem.hint_msg}
                   %td
                     = link_to 'remove', challenge_action_scavenger_scavenger_item_remove_prereq_path(@challenge, @action_stub.specific, item,preqitem), method: :put, 'data-confirm' =>   "Are you sure you want to remove #{preqitem.name} from this item?"
         %td= item.order
