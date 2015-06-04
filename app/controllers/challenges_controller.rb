@@ -1,6 +1,7 @@
 class ChallengesController < ApplicationController
   before_action :set_challenge, only: [:show, :edit, :update, :destroy]
-
+  autocomplete :location, :name, :class_name => 'ActsAsTaggableOn::Tag'
+  autocomplete :topic, :name, :class_name => 'ActsAsTaggableOn::Tag'
   def index
     @challenges = Challenge.all
   end
@@ -109,6 +110,10 @@ class ChallengesController < ApplicationController
     end
   end
 
+  def tag_cloud
+    @tags = Challenge.tag_counts_on(:tags)
+  end
+
   def destroy
     @challenge.destroy
     respond_to do |format|
@@ -134,6 +139,6 @@ class ChallengesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def challenge_params
-      params.require(:challenge).permit(:name, :description, :start_date, :end_date, :challenge_img, :total_offer, :amount_raised, :sponsor_blurb, :charity_blurb, :enabled, :seo_name, :img_thumb_url, :logo_url)
+      params.require(:challenge).permit(:name, :description, :start_date, :end_date, :challenge_img, :total_offer, :amount_raised, :sponsor_blurb, :charity_blurb, :enabled, :seo_name, :img_thumb_url, :logo_url, :location_list,:topic_list)
     end
 end

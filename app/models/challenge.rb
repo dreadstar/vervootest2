@@ -17,4 +17,6 @@ class Challenge < ActiveRecord::Base
   # validates_attachment_content_type :logo_url, :content_type => /\Aimage\/.*\Z/
 
   accepts_nested_attributes_for :action_stubs, :reject_if => lambda { |a| a[:name].blank? }, :allow_destroy => true
+
+  acts_as_taggable_on :locations, :topics
 end

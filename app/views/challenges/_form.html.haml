@@ -12,6 +12,14 @@
     %br/
     = f.text_field :name
   .field
+    = f.label 'Location Tags:'
+    %br/
+    = f.autocomplete_field :location_list, autocomplete_location_name_challenges_path, :"data-delimiter" => ', '
+  .field
+    = f.label 'Topic Tags:'
+    %br/
+    = f.autocomplete_field :topic_list, autocomplete_topic_name_challenges_path, :"data-delimiter" => ', '
+  .field
     = f.label :description
     %br/
     = f.text_area :description

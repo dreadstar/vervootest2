@@ -15,6 +15,8 @@ Vervootest2::Application.routes.draw do
     put '/add_nonprofit', to: 'challenges#add_nonprofit', as: 'add_nonprofit'
     put '/remove_sponsor/:id', to: 'challenges#remove_sponsor', as: 'remove_sponsor'
     put '/remove_nonprofit/:id', to: 'challenges#remove_nonprofit', as: 'remove_nonprofit'
+    get :autocomplete_location_name, :on => :collection
+    get :autocomplete_topic_name, :on => :collection 
 
     resources :action_stubs, except: [:index, :create]
     resources :action_scavengers, only: [:create, :update] do

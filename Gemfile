@@ -18,6 +18,8 @@ gem 'acts_as_relation', '~> 1.0'
 gem 'haml-rails'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'yaml_db'
+gem 'acts-as-taggable-on', '~> 3.4'
+gem 'rails4-autocomplete'
 
 group :doc do
   gem 'sdoc', require: false
