@@ -1,0 +1,69 @@
+%p#notice= notice
+%p
+  %strong Name:
+  = @challenge.name
+%p
+  %strong Total offer:
+  = @challenge.total_offer
+%p
+  %strong Amount Raised:
+  = @challenge.web_challenge.nil? ?  "no one signed up yet" : @challenge.web_challenge.amount_raised
+%p
+  %strong Start date:
+  = @challenge.start_date
+%p
+  %strong End date:
+  = @challenge.end_date
+
+
+
+%br
+= link_to 'Back to Challenges', challenges_path
+%br
+
+.row
+  .col-md-12
+    .page-title
+      %h2 Action Logs
+- @challenge.action_stubs.each do |action|
+  .row
+    .col-md-12
+      %h3
+        = action.name
+        |
+        = action.as_action_stub_type
+
+      %table.table.table-striped
+        %thead
+          %tr
+            %th Timestamp
+            %th Activity Type
+            %th Destination
+            %th Amount
+            %th Extra Info
+
+          %tbody
+            - action.user_activity_trackings.each do |logentry|
+              %tr
+                %td= logentry.tstamp
+                %td= logentry.activity_sub_type
+                %td= logentry.dest
+                %td= logentry.amt
+                %td= logentry.extra_info
+.row
+  .col-md-12
+    .page-title
+      %h3
+        Users Signups -
+        =@challenge.challenge_users.count
+    %table.table.table-striped
+      %thead
+        %tr
+          %th Join Date
+    - @challenge.challenge_users.each do |user|
+      %tr
+        %td= user.created_at
+
+%br
+= link_to 'Back to Challenges', challenges_path
+%br

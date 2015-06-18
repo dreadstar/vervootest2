@@ -10,6 +10,12 @@ class ChallengesController < ApplicationController
     @challenge = Challenge.find(params[:id])
   end
 
+  def analytics
+
+    @challenge = Challenge.find(params[:challenge_id])
+
+  end
+
   def new
     @challenge = Challenge.new
     action_stub= @challenge.action_stubs.build

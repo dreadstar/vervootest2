@@ -16,7 +16,6 @@ development:
 
 test:
   adapter: mysql2
-  database: omicronp_vervoodev
   database: omicronp_vervootest
   username: omicronp_dev
   password: V#T,~fJ!Nx*I
@@ -25,8 +24,36 @@ test:
 production:
   adapter: mysql2
   encoding: utf8
-  database: omicronp_vervooprod
+  database: vervooprod
+  username: rails
+  password: LC1wlGbju6
+  host: localhost
+  port: 3306
+
+
+stats_development:
+  adapter: mysql2
+  encoding: utf8
+  database: joomla_dev
   username: omicronp_dev
   password: V#T,~fJ!Nx*I
-  host: 50.63.147.92
+  host: localhost
+  port: 3306
+
+stats_production:
+  adapter: mysql2
+  encoding: utf8
+  database: joomla
+  username: rails
+  password: LC1wlGbju6
+  host: localhost
+  port: 3306
+
+stats_test:
+  adapter: mysql2
+  encoding: utf8
+  database: vervooprod
+  username: rails
+  password: LC1wlGbju6
+  host: manage.vervoo.com
   port: 3306
