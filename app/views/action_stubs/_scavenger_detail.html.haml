@@ -65,6 +65,8 @@
           = link_to 'Edit', edit_challenge_action_scavenger_scavenger_item_path(@challenge, @action_stub.specific, item)
           |
           = link_to 'Destroy', challenge_action_scavenger_scavenger_item_path(@challenge, @action_stub.specific, item), method: :delete, data: { confirm: 'Are you sure?' }
+          |
+          = link_to 'QR Code', challenge_action_scavenger_scavenger_item_showqr_path(@challenge, @action_stub.specific, item)
 
 
 = link_to 'Edit', edit_challenge_action_stub_path(@challenge, @action_stub)

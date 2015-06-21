@@ -54,15 +54,16 @@
   .col-md-12
     .page-title
       %h3
-        Users Signups -
+        User Signups -
         =@challenge.challenge_users.count
     %table.table.table-striped
       %thead
         %tr
           %th Join Date
-    - @challenge.challenge_users.each do |user|
-      %tr
-        %td= user.created_at
+      %tbody
+        - @challenge.challenge_users.each do |user|
+          %tr
+            %td= user.created_at
 
 %br
 = link_to 'Back to Challenges', challenges_path

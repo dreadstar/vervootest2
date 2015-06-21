@@ -24,6 +24,7 @@ Vervootest2::Application.routes.draw do
       resources :scavenger_items, except: [:index, :show] do
         put '/add_prereq', to: 'scavenger_items#add_prereq', as: 'add_prereq'
         put '/remove_prereq/:id', to: 'scavenger_items#remove_prereq', as: 'remove_prereq'
+        get '/showqr', to: 'scavenger_items#showqr', as: 'showqr'
       end
     end
     resources :action_simpleshares, only: [:create, :update]
