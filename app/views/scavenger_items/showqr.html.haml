@@ -1,11 +1,18 @@
 %h1 Scavenger Item QR Code
 
-%h3= @scavenger_item.name
-
-= image_tag 'http://chart.apis.google.com/chart?chs=500x500&cht=qr&chld=L|0&chl=http://joomla.vervoo.com/index.php%3Foption=com_challengecatalog%26view=fouditem%26itmid=' + String(@scavenger_item.id), width: 500, height: 500
+%h3
+  - if not @scavenger_item.name.nil?
+    = @scavenger_item.name
+  - if not @scavenger_item.name.nil? and not @scavenger_item.hint_msg.nil?
+    |
+  - if not @scavenger_item.hint_msg.nil?
+    = @scavenger_item.hint_msg
+%br
+%br
+= image_tag 'http://chart.apis.google.com/chart?chs=500x500&cht=qr&chld=L|0&chl=http://vervoo.com/index.php%3Foption=com_challengecatalog%26task=foundScavItem%26itmid=' + String(@scavenger_item.id), width: 500, height: 500
 
 %br
+%br
 
-
-
-= link_to 'Back', challenge_action_stub_path(@challenge, @action_scavenger.action_stub)
+%h3
+  = link_to 'Back', challenge_action_stub_path(@challenge, @action_scavenger.action_stub)
