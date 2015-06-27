@@ -1,6 +1,6 @@
 class ScavengerItemsController < ApplicationController
   before_action :find_challenge, only: [:new, :edit, :create, :update, :destroy, :add_prereq,:remove_prereq,:showqr]
-  before_action :find_action_scavenger, except: [:index, :show, :add_prereq,:remove_prereq]
+  before_action :find_action_scavenger, except: [:index, :show]
   before_action :find_scavenger_item, only: [:update, :destroy, :edit]
   before_action :find_scavenger_item2, only: [:showqr]
 
@@ -88,7 +88,7 @@ class ScavengerItemsController < ApplicationController
   end
 
   def find_action_scavenger
-    @action_scavenger = ActionScavenger.find(params[:action_scavenger_id])
+    @action_scavenger = ActionScavenger.find(params[ :action_scavenger_id])
   end
 
   def find_challenge
