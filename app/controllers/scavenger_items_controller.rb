@@ -58,7 +58,7 @@ class ScavengerItemsController < ApplicationController
   end
 
   def create
-    @scavenger_item = ScavengerItem.new(scavenger_items_params.merge(action_scavenger_id: @action_scavenger.id))
+    @scavenger_item = ScavengerItem.new(scavenger_items_params.merge(action_scavenger_id: @action_scavenger.id).merge(public_id: SecureRandom.uuid))
 
     if @scavenger_item.save
       redirect_to challenge_action_stub_path(@challenge, @action_scavenger.action_stub), notice: 'Item was successfully created.'

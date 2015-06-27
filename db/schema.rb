@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150422160552) do
+ActiveRecord::Schema.define(version: 20150626155354) do
 
   create_table "action_scavengers", force: :cascade do |t|
     t.boolean  "team",           limit: 1
@@ -153,6 +153,7 @@ ActiveRecord::Schema.define(version: 20150422160552) do
     t.decimal  "find_amt",                          precision: 10
     t.boolean  "prereq_flag",         limit: 1
     t.string   "name",                limit: 255
+    t.string   "public_id",           limit: 255
   end
 
   create_table "scavenger_items_prereqs", force: :cascade do |t|
